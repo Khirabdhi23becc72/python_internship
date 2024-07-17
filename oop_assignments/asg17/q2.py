@@ -1,5 +1,5 @@
 class Product:
-    def _init_(self, product_id, name, price, discount_percentage):
+    def __init__(self, product_id, name, price, discount_percentage):
         self.__product_id = product_id
         self.__name = name
         self.__price = price
@@ -43,11 +43,11 @@ class Product:
 
     # Protected method to calculate the final price after discount
     def _final_price(self):
-        return self._price * (1 - self._discount_percentage / 100)
+        return self.__price * (1 - self.__discount_percentage / 100)
 
 class Electronics(Product):
-    def _init_(self, product_id, name, price, discount_percentage, warranty_period):
-        super()._init_(product_id, name, price, discount_percentage)
+    def __init__(self, product_id, name, price, discount_percentage, warranty_period):
+        super().__init__(product_id, name, price, discount_percentage)
         self.__warranty_period = warranty_period
 
     # Getter and Setter for warranty_period
@@ -60,8 +60,8 @@ class Electronics(Product):
         self.__warranty_period = warranty_period
 
 class Clothing(Product):
-    def _init_(self, product_id, name, price, discount_percentage, size, material):
-        super()._init_(product_id, name, price, discount_percentage)
+    def __init__(self, product_id, name, price, discount_percentage, size, material):
+        super().__init__(product_id, name, price, discount_percentage)
         self.__size = size
         self.__material = material
 
@@ -84,7 +84,7 @@ class Clothing(Product):
         self.__material = material
 
 class ShoppingCart:
-    def _init_(self):
+    def __init__(self):
         self.products = []
 
     def add_electronic_item(self, electronic_item):
@@ -108,7 +108,7 @@ shopping_cart = ShoppingCart()
 # Adding electronic items
 electronic1 = Electronics("E1001", "Laptop", 1000, 10, "2 years")
 electronic2 = Electronics("E1002", "Smartphone", 800, 5, "1 year")
-electronic3 =  Electronics("E1003","remote",500,3,"1 year")
+electronic3 = Electronics("E1003", "Remote", 500, 3, "1 year")
 shopping_cart.add_electronic_item(electronic1)
 shopping_cart.add_electronic_item(electronic2)
 shopping_cart.add_electronic_item(electronic3)

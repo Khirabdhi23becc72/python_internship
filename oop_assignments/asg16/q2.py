@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 
 # Abstract class PaymentMethod
 class PaymentMethod(ABC):
-    def _init_(self):
-        super()._init_()
+    def __init__(self):
+        super().__init__()
 
     @abstractmethod
     def pay(self, amount):
@@ -11,8 +11,8 @@ class PaymentMethod(ABC):
 
 # Subclass CreditCard
 class CreditCard(PaymentMethod):
-    def _init_(self, cc_no, exp_date, cvv):
-        super()._init_()
+    def __init__(self, cc_no, exp_date, cvv):
+        super().__init__()
         self.cc_no = cc_no
         self.exp_date = exp_date
         self.cvv = cvv
@@ -23,8 +23,8 @@ class CreditCard(PaymentMethod):
 
 # Subclass PayPal
 class PayPal(PaymentMethod):
-    def _init_(self, email):
-        super()._init_()
+    def __init__(self, email):
+        super().__init__()
         self.email = email
     
     def pay(self, amount):
@@ -33,8 +33,8 @@ class PayPal(PaymentMethod):
 
 # Subclass Bitcoin
 class Bitcoin(PaymentMethod):
-    def _init_(self, wallet_add):
-        super()._init_()
+    def __init__(self, wallet_add):
+        super().__init__()
         self.wallet_add = wallet_add
     
     def pay(self, amount):
@@ -42,7 +42,7 @@ class Bitcoin(PaymentMethod):
         print(f"Paying ${amount} using Bitcoin wallet address {self.wallet_add}")
 
 # Example usage:
-if __name__ == "_main_":
+if __name__ == "__main__":
     # Creating instances of each subclass
     credit_card = CreditCard(cc_no="1234567812345678", exp_date="12/23", cvv="123")
     paypal = PayPal(email="example@example.com")

@@ -1,5 +1,5 @@
 class Person:
-    def _init_(self, name, age):
+    def __init__(self, name, age):
         self.__name = name
         self.__age = age
 
@@ -22,8 +22,8 @@ class Person:
         self.__age = age
 
 class Student(Person):
-    def _init_(self, name, age, student_id, major):
-        super()._init_(name, age)
+    def __init__(self, name, age, student_id, major):
+        super().__init__(name, age)
         self.__student_id = student_id
         self.__major = major
 
@@ -46,8 +46,8 @@ class Student(Person):
         self.__major = major
 
 class Professor(Person):
-    def _init_(self, name, age, employee_id, department):
-        super()._init_(name, age)
+    def __init__(self, name, age, employee_id, department):
+        super().__init__(name, age)
         self.__employee_id = employee_id
         self.__department = department
 
@@ -70,7 +70,7 @@ class Professor(Person):
         self.__department = department
 
 class University:
-    def _init_(self):
+    def __init__(self):
         self.students = []
         self.professors = []
 
